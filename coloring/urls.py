@@ -10,5 +10,5 @@ urlpatterns = [
     path('home', views.home, name='home'),
     path('landing', views.landing, name='landing'),
 
-
+    path('color', views.color, name='color'),
 ]
