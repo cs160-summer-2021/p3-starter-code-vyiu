@@ -1,0 +1,137 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>compare</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'coloring/vendors/bootstrap/css/bootstrap.css' %}" />
+	<script type="text/javascript" src="{% static 'coloring/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'coloring/vendors/paper/paper-full.min.js' %}"></script>
+	 <!-- <link rel="stylesheet" type="text/css" href="{% static 'weather/vendors/bootstrap/css/bootstrap.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'weather/css/style.css' %}" />
+-->
+
+	<style>
+
+
+
+							.Input-Title{
+								text-align: center;
+								font-size: 16px;
+							}
+
+  </style>
+
+	<script type="text/javascript" >
+
+
+
+	$( function() {
+	$(".deletebutton").click(function(){
+		$(this).remove();
+	});
+	});
+
+
+	$( function() {
+	    $( "#preview_picture" ).draggable({ axis: "y" });
+	  } );
+
+
+
+		let timerID = 	setInterval(function () {
+							$(".shape-container").append("<div class='p2-circle bg-blue'></div>")
+					}, 1000 );
+
+			$(".deletebutton").click(function(){
+				$(".bg-purple").hide();
+
+
+				$(".scroll-images").append("<div class='p2-circle bg-blue'></div>")
+		}, 1000 );
+
+			});
+
+
+	</script>
+
+</head>
+<body>
+
+	<!-- replace this html -->
+	<div class="container">
+
+    	<!-- div class for header: Compare your work
+				<div add new template>
+		-->
+		<div class="row">
+			<span class="m-5" style="font-size:50px; cursor:pointer" onclick="openNav()">&#9776;</span>
+			<button type="button" style="background-color: #FCE6E4; width:60vw; font-size:30px;" class="m-5 rounded btn btn-lg btn-block">Compare Your Works!</button>
+			<div class="column">
+				<i class="fa fa-pencil"></i>
+				<div style="font-size: 20px; margin-left: 43px; margin-top: 10px;">New</div>
+			</div>
+
+      <!-- images -->
+
+
+			<div class="scroll-images">
+
+
+				<div class = "templates">
+
+
+					<div class="row" style="margin-left: 6vw;">
+						<img class="ml-5 mr-5 mb-2" style="width:35vw; box-shadow:3px 3px 50px rgba(0, 0, 0, 0.12);" src='/static/coloring/images/color_blue_grad.png'>
+						<div class="d-grid gap-2 d-md-block col-6  mx-auto">
+							<button class="btn btn-primary deletebutton" type="button">Delete</button>
+							<button class="btn btn-primary duplicatebutton" type="button">Duplicate</button>
+						</div>
+						<img class="ml-5 mr-5 mb-2" style="width:35vw; box-shadow:3px 3px 50px rgba(0, 0, 0, 0.12);" src='/static/coloring/images/color_blue_pink.png'>
+						<div class="d-grid gap-2 d-md-block col-6  mx-auto">
+							<button class="btn btn-primary deletebutton" type="button">Delete</button>
+							<button class="btn btn-primary duplicatebutton" type="button">Duplicate</button>
+						</div>
+					</div>
+					<div class="row" style="margin-left: 6vw;">
+						<img class="ml-5 mr-5 mb-2" style="width:35vw; box-shadow:3px 3px 50px rgba(0, 0, 0, 0.12);" src='/static/coloring/images/color_purple_blue.png'>
+						<div class="d-grid gap-2 d-md-block col-6  mx-auto">
+							<button class="btn btn-primary deletebutton" type="button">Delete</button>
+							<button class="btn btn-primary duplicatebutton" type="button">Duplicate</button>
+						</div>
+						<img class="ml-5 mr-5 mb-2" style="width:35vw; box-shadow:3px 3px 50px rgba(0, 0, 0, 0.12);" src='/static/coloring/images/color_yellow.png'>
+						<div class="d-grid gap-2 d-md-block col-6  mx-auto">
+							<button class="btn btn-primary deletebutton" type="button">Delete</button>
+							<button class="btn btn-primary duplicatebutton" type="button">Duplicate</button>
+						</div>
+					</div>
+
+
+
+				<img class="preview_picture" src="img/img1.png" width="200"/>
+				<div class="d-grid gap-2 d-md-block col-6  mx-auto">
+				  <button class="btn btn-primary deletebutton" type="button">Delete</button>
+				  <button class="btn btn-primary duplicatebutton" type="button">Duplicate</button>
+				</div>
+				</div>
+
+				<div class = "templates">
+				<img class="preview_picture" src="img/img2.png" width="200"/>
+				<div class="d-grid gap-2 d-md-block col-6  mx-auto">
+				  <button class="btn btn-primary" type="button">Delete</button>
+				  <button class="btn btn-primary" type="button">Duplicate</button>
+				</div>
+				</div>
+
+				<img class="preview_picture" src="img/img3.png" width="200"/>
+
+				<img class="preview_picture" src="img/img4.png" width="200"/>
+				<img class="preview_picture" src="img/img5.png" width="200"/>
+				<img class="preview_picture" src="img/img6.png" width="200"/>
+			</div>
+
+
+
+</body>
+</html>
