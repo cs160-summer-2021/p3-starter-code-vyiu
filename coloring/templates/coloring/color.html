@@ -94,30 +94,46 @@
 		function closeNav() {
 			document.getElementById("mySidenav").style.width = "0";
 		}
+
+		function blue() {
+			$("#blue").attr("src", $('#canvas').attr('src'));
+			$("#canvas").attr("src", '/static/coloring/images/color_purple_blue.png');
+		}
+
+		function pink() {
+			$("#pink").attr("src", $('#canvas').attr('src'));
+			$("#canvas").attr("src", '/static/coloring/images/color_purple_pink.png');
+		}
+
+		function blank() {
+			$("#blank").attr("src", $('#canvas').attr('src'));
+			$("#canvas").attr("src", '/static/coloring/images/color_purple.png');
+		}
+
 	</script>
 </head>
 <body>
 	<div id="mySidenav" class="sidenav">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 		<a href="#" class="row">
-			<i class="fa fa-home"></i>
+			<i style="font-size: 40px; padding-top: 40px; padding-left: 50px;" class="fa fa-home"></i>
 			<div class="nav-item">Home</div>
 		</a>
 		<a href="#" class="row">
-			<i class="material-icons">&#xe40a;</i>
+			<i style="font-size: 40px; padding-top: 40px; padding-left: 50px;" class="material-icons">&#xe40a;</i>
 			<div class="nav-item">Studio</div>
 		</a>
 		<a href="explore.html" class="row">
-			<i class="fa fa-search"></i>
+			<i style="font-size: 40px; padding-top: 40px; padding-left: 50px;" class="fa fa-search"></i>
 			<div class="nav-item">Explore</div>
 		</a>
 	</div>
 	<div class="row">
 		<span class="m-5" style="font-size:50px; cursor:pointer" onclick="openNav()">&#9776;</span>
 		<div class="row m-5">
-			<img class="m-3" style="margin-top: 30px; width:15vw; box-shadow:3px 3px 50px rgba(0, 0, 0, 0.12);" src='/static/coloring/images/color_purple_blue.png'>
-			<img class="m-3" style="margin-top: 30px; width:15vw; box-shadow:3px 3px 50px rgba(0, 0, 0, 0.12);" src='/static/coloring/images/color_purple_pink.png'>
-			<img class="m-3" style="margin-top: 30px; width:15vw; box-shadow:3px 3px 50px rgba(0, 0, 0, 0.12);" src='/static/coloring/images/color_purple.png'>
+			<img class="m-3" id="blue" onclick="blue()" style="margin-top: 30px; width:15vw; box-shadow:3px 3px 50px rgba(0, 0, 0, 0.12);" src='/static/coloring/images/color_purple_blue.png'>
+			<img class="m-3" id="pink" onclick="pink()" style="margin-top: 30px; width:15vw; box-shadow:3px 3px 50px rgba(0, 0, 0, 0.12);" src='/static/coloring/images/color_purple_pink.png'>
+			<img class="m-3" id="blank" onclick="blank()" style="margin-top: 30px; width:15vw; box-shadow:3px 3px 50px rgba(0, 0, 0, 0.12);" src='/static/coloring/images/color_purple.png'>
 		</div>
 		<div class="col">
 			<div class="row" style="margin-top: 5vh;">
@@ -141,8 +157,12 @@
 			<span style="background-color:#F7C9C3;" class="dot"></span>
 			<span style="background-color:#99E8F0;" class="dot"></span>
 			<span style="background-color:#F0B0B1;" class="dot"></span>
+			<i class="material-icons" style="font-size: 50px; margin-top: 20px; margin-left: 20px;">&#xe40a;</i>
+			<i class="fa fa-paint-brush" style="font-size: 50px; margin-top: 30px; margin-left: 20px;"></i>
+			<i class="fa fa-check" style="font-size: 50px; margin-top: 180px; margin-left: 20px;"></i>
+			<i class="fa fa-trash" style="font-size: 50px; margin-top: 30px; margin-left: 20px;"></i>
 		</div>
-		<img style="margin-top: 10px; margin-left: 120px; height:65vh; box-shadow:3px 3px 50px rgba(0, 0, 0, 0.12);" src='/static/coloring/images/color_purple_grad.png'>
+		<img id="canvas" style="margin-top: 10px; margin-left: 120px; height:67vh; box-shadow:3px 3px 50px rgba(0, 0, 0, 0.12);" src='/static/coloring/images/color_purple_grad.png'>
 	</div>
 </body>
 </html>
