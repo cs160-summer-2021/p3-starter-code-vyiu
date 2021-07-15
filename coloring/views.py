@@ -15,3 +15,6 @@ def home(request):
 
 def landing(request):
     return render(request, 'coloring/landing.html')
+
+def explore(request):
+    return render(request, 'coloring/explore.html')

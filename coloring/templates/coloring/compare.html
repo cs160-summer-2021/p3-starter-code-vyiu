@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>compare</title>
 	<link rel="stylesheet" type="text/css" href="{% static 'coloring/vendors/bootstrap/css/bootstrap.css' %}" />
 	<script type="text/javascript" src="{% static 'coloring/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
@@ -69,6 +70,14 @@
     	<!-- div class for header: Compare your work
 				<div add new template>
 		-->
+		<div class="row">
+			<span class="m-5" style="font-size:50px; cursor:pointer" onclick="openNav()">&#9776;</span>
+			<button type="button" style="background-color: #FCE6E4; width:60vw; font-size:30px;" class="m-5 rounded btn btn-lg btn-block">Compare Your Works!</button>
+			<div class="column">
+				<i class="fa fa-pencil"></i>
+				<div style="font-size: 20px; margin-left: 43px; margin-top: 10px;">New</div>
+			</div>
+
       <div class="Input-Title">
         <h1>Title</h1>
       </div>
