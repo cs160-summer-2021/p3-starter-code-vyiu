@@ -5,3 +5,6 @@ def index(request):
 
 def explore(request):
     return render(request, 'coloring/explore.html')
+
+def color(request):
+    return render(request, 'coloring/color.html')
