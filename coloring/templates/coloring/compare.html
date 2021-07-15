@@ -6,13 +6,13 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>compare</title>
 	<link rel="stylesheet" type="text/css" href="{% static 'coloring/vendors/bootstrap/css/bootstrap.css' %}" />
+	<!-- font awesome -->
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<script type="text/javascript" src="{% static 'coloring/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'coloring/vendors/paper/paper-full.min.js' %}"></script>
-	 <!-- <link rel="stylesheet" type="text/css" href="{% static 'weather/vendors/bootstrap/css/bootstrap.css' %}" />
-	<link rel="stylesheet" type="text/css" href="{% static 'weather/css/style.css' %}" />
--->
-
-	<style>
+	<style type="text/css">
 
 
 
@@ -20,118 +20,102 @@
 								text-align: center;
 								font-size: 16px;
 							}
+							.sidenav {
+		height: 100%;
+		width: 0;
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		background-color: #F7C9C3;
+		overflow-x: hidden;
+		transition: 0.5s;
+		padding-top: 60px;
+	}
+
+	.nav-item {
+		padding: 8px 8px 8px 32px;
+		margin-top: 30px;
+		margin-bottom: 30px;
+		text-decoration: none;
+		color: black;
+		font-size: 30px;
+		display: block;
+		transition: 0.3s;
+	}
+
+	.sidenav .closebtn {
+		position: absolute;
+		top: 0;
+		right: 25px;
+		font-size: 36px;
+		margin-left: 50px;
+	}
+
+	@media screen and (max-height: 450px) {
+		.sidenav {padding-top: 15px;}
+		.sidenav a {font-size: 18px;}
+	}
+
+	.fa, .material-icons {
+		font-size: 40px;
+		padding-left: 50px;
+		padding-top: 40px;
+
+	}
 
   </style>
 
 	<script type="text/javascript" >
 
+function openNav() {
+			document.getElementById("mySidenav").style.width = "300px";
+		}
 
-
-	$( function() {
-	$(".deletebutton").click(function(){
-		$(this).remove();
-	});
-	});
-
-
-	$( function() {
-	    $( "#preview_picture" ).draggable({ axis: "y" });
-	  } );
-
-
-
-		let timerID = 	setInterval(function () {
-							$(".shape-container").append("<div class='p2-circle bg-blue'></div>")
-					}, 1000 );
-
-			$(".deletebutton").click(function(){
-				$(".bg-purple").hide();
-
-
-				$(".scroll-images").append("<div class='p2-circle bg-blue'></div>")
-		}, 1000 );
-
-			});
-
-
+		function closeNav() {
+			document.getElementById("mySidenav").style.width = "0";
+		}
 	</script>
 
 </head>
 <body>
-
-	<!-- replace this html -->
-	<div class="container">
-
-    	<!-- div class for header: Compare your work
-				<div add new template>
-		-->
-		<div class="row">
-			<span class="m-5" style="font-size:50px; cursor:pointer" onclick="openNav()">&#9776;</span>
-			<button type="button" style="background-color: #FCE6E4; width:60vw; font-size:30px;" class="m-5 rounded btn btn-lg btn-block">Compare Your Works!</button>
-			<div class="column">
-				<i class="fa fa-pencil"></i>
-				<div style="font-size: 20px; margin-left: 43px; margin-top: 10px;">New</div>
-			</div>
-
-      <!-- images -->
-
-
-			<div class="scroll-images">
-
-
-				<div class = "templates">
-
-
-					<div class="row" style="margin-left: 6vw;">
-						<img class="ml-5 mr-5 mb-2" style="width:35vw; box-shadow:3px 3px 50px rgba(0, 0, 0, 0.12);" src='/static/coloring/images/color_blue_grad.png'>
-						<div class="d-grid gap-2 d-md-block col-6  mx-auto">
-							<button class="btn btn-primary deletebutton" type="button">Delete</button>
-							<button class="btn btn-primary duplicatebutton" type="button">Duplicate</button>
-						</div>
-						<img class="ml-5 mr-5 mb-2" style="width:35vw; box-shadow:3px 3px 50px rgba(0, 0, 0, 0.12);" src='/static/coloring/images/color_blue_pink.png'>
-						<div class="d-grid gap-2 d-md-block col-6  mx-auto">
-							<button class="btn btn-primary deletebutton" type="button">Delete</button>
-							<button class="btn btn-primary duplicatebutton" type="button">Duplicate</button>
-						</div>
-					</div>
-					<div class="row" style="margin-left: 6vw;">
-						<img class="ml-5 mr-5 mb-2" style="width:35vw; box-shadow:3px 3px 50px rgba(0, 0, 0, 0.12);" src='/static/coloring/images/color_purple_blue.png'>
-						<div class="d-grid gap-2 d-md-block col-6  mx-auto">
-							<button class="btn btn-primary deletebutton" type="button">Delete</button>
-							<button class="btn btn-primary duplicatebutton" type="button">Duplicate</button>
-						</div>
-						<img class="ml-5 mr-5 mb-2" style="width:35vw; box-shadow:3px 3px 50px rgba(0, 0, 0, 0.12);" src='/static/coloring/images/color_yellow.png'>
-						<div class="d-grid gap-2 d-md-block col-6  mx-auto">
-							<button class="btn btn-primary deletebutton" type="button">Delete</button>
-							<button class="btn btn-primary duplicatebutton" type="button">Duplicate</button>
-						</div>
-					</div>
-
-
-
-				<img class="preview_picture" src="img/img1.png" width="200"/>
-				<div class="d-grid gap-2 d-md-block col-6  mx-auto">
-				  <button class="btn btn-primary deletebutton" type="button">Delete</button>
-				  <button class="btn btn-primary duplicatebutton" type="button">Duplicate</button>
-				</div>
-				</div>
-
-				<div class = "templates">
-				<img class="preview_picture" src="img/img2.png" width="200"/>
-				<div class="d-grid gap-2 d-md-block col-6  mx-auto">
-				  <button class="btn btn-primary" type="button">Delete</button>
-				  <button class="btn btn-primary" type="button">Duplicate</button>
-				</div>
-				</div>
-
-				<img class="preview_picture" src="img/img3.png" width="200"/>
-
-				<img class="preview_picture" src="img/img4.png" width="200"/>
-				<img class="preview_picture" src="img/img5.png" width="200"/>
-				<img class="preview_picture" src="img/img6.png" width="200"/>
-			</div>
-
-
-
+	<div id="mySidenav" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="home" class="row">
+			<i class="fa fa-home"></i>
+			<div class="nav-item">Home</div>
+		</a>
+		<a href="studio" class="row">
+			<i class="material-icons">&#xe40a;</i>
+			<div class="nav-item">Studio</div>
+		</a>
+		<a href="explore" class="row">
+			<i class="fa fa-search"></i>
+			<div class="nav-item">Explore</div>
+		</a>
+	</div>
+	<div class="row">
+		<span class="m-5" style="font-size:50px; cursor:pointer" onclick="openNav()">&#9776;</span>
+		<button type="button" style="background-color: #FCE6E4; width:60vw; font-size:30px;" class="m-5 rounded btn btn-lg btn-block">Compare Your Works!</button>
+		<div class="column">
+			<i class="fa fa-pencil"></i>
+			<div style="font-size: 20px; margin-left: 43px; margin-top: 10px;">New</div>
+		</div>
+	</div>
+	<div class="row" style="margin-left: 6vw;">
+		<img class="ml-5 mr-5 mb-2" style="width:35vw; box-shadow:3px 3px 50px rgba(0, 0, 0, 0.12);" src='/static/coloring/images/color_purple_grad.png'>
+		<img class="ml-5 mr-5 mb-2" style="width:35vw; box-shadow:3px 3px 50px rgba(0, 0, 0, 0.12);" src='/static/coloring/images/color_purple_blue.png'>
+	</div>
+	<div class="row" style="margin-left: 6vw;">
+		<img class="ml-5 mr-5 mb-1" style="margin-top: 30px; width:35vw; box-shadow:3px 3px 50px rgba(0, 0, 0, 0.12);" src='/static/coloring/images/color_purple_pink.png'>
+		<img class="ml-5 mr-5 mb-1" style="margin-top: 30px; width:35vw; box-shadow:3px 3px 50px rgba(0, 0, 0, 0.12);" src='/static/coloring/images/color_purple.png'>
+	</div>
+	<div class="row" style="margin-left: 6vw;">
+		<img class="ml-5 mr-5 mb-1" style="margin-top: 30px; width:35vw; box-shadow:3px 3px 50px rgba(0, 0, 0, 0.12);" src='/static/coloring/images/color_blue_pink.png'>
+		<img class="ml-5 mr-5 mb-1" style="margin-top: 30px; width:35vw; box-shadow:3px 3px 50px rgba(0, 0, 0, 0.12);" src='/static/coloring/images/color_blue.png'>
+	</div>
+	<div class="row" style="margin-left: 6vw;">
+		<img class="ml-5 mr-5 mb-1" style="margin-top: 30px; width:35vw; box-shadow:3px 3px 50px rgba(0, 0, 0, 0.12);" src='/static/coloring/images/color_yellow.png'>
+	</div>
 </body>
 </html>

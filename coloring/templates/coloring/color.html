@@ -84,6 +84,52 @@
         -ms-filter: "FlipH";
 	}
 
+	/* popup code ref: https://www.w3schools.com/howto/howto_js_popup.asp */
+
+	.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  background-color: white;
+}
+
+#myPopup {
+	background-color: white;
+	width: 180px;
+	padding: 25px;
+	box-shadow:3px 3px 50px rgba(0, 0, 0, 0.12);
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  visibility: hidden;
+  border-radius: 6px;
+  padding: 10px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
 	</style>
 
 	<script type="text/javascript" canvas="canvas">
@@ -96,18 +142,40 @@
 		}
 
 		function blue() {
+			var blue = $('#blue').attr('src');
 			$("#blue").attr("src", $('#canvas').attr('src'));
-			$("#canvas").attr("src", '/static/coloring/images/color_purple_blue.png');
+			$("#canvas").attr("src", blue);
 		}
 
 		function pink() {
+			var pink = $('#pink').attr('src');
 			$("#pink").attr("src", $('#canvas').attr('src'));
-			$("#canvas").attr("src", '/static/coloring/images/color_purple_pink.png');
+			$("#canvas").attr("src", pink);
 		}
 
 		function blank() {
+			var blank = $('#blank').attr('src');
 			$("#blank").attr("src", $('#canvas').attr('src'));
+			$("#canvas").attr("src", blank);
+		}
+
+		function template() {
 			$("#canvas").attr("src", '/static/coloring/images/color_purple.png');
+		}
+
+
+		function pop() {
+			var popup = document.getElementById("myPopup");
+			popup.classList.toggle("show");
+		}
+
+		function duplicate() {
+			var canvas= $('#canvas').attr('src');
+			var first = $('#blue').attr('src');
+			var second = $('#pink').attr('src');
+			$("#blue").attr("src", canvas);
+			$("#pink").attr("src", first);
+			$("#blank").attr("src", second);
 		}
 
 	</script>
@@ -119,7 +187,7 @@
 			<i style="font-size: 40px; padding-top: 40px; padding-left: 50px;" class="fa fa-home"></i>
 			<div class="nav-item">Home</div>
 		</a>
-		<a href="#" class="row">
+		<a href="studio" class="row">
 			<i style="font-size: 40px; padding-top: 40px; padding-left: 50px;" class="material-icons">&#xe40a;</i>
 			<div class="nav-item">Studio</div>
 		</a>
@@ -137,10 +205,15 @@
 		</div>
 		<div class="col">
 			<div class="row" style="margin-top: 5vh;">
-				<div style="font-size: 20px; margin-left: 5vw;">New</div>
+				<div class="popup" onclick="pop()" style="font-size: 20px; margin-left: 5vw;">New
+					<span class="popuptext" id="myPopup">
+						<div onclick="duplicate()" class="row">Duplicate</div>
+						<div onclick="template()" class="row">From template</div>
+					</span>
+				</div>
 				<i class="fa fa-pencil"></i>
 			</div>
-			<div class="row" style="margin-top: 2vh;">
+			<div class="row" style="z-index:0; margin-top: 2vh;">
 				<a href=compare><div style="font-size: 20px">Compare</div></a>
 				<i class="fa fa-arrow-right"></i>
 			</div>
