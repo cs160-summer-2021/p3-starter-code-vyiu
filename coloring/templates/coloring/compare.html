@@ -44,6 +44,11 @@
 		transition: 0.3s;
 	}
 
+	.sidenav a {
+		text-decoration: none;
+		color:black;
+	}
+
 	.sidenav .closebtn {
 		position: absolute;
 		top: 0;
@@ -74,9 +79,63 @@
 	
 	.item {
 		margin: 0px 0px 60px 100px;
+	}
+
+	.item img {
 		width:35vw; 
 		box-shadow:3px 3px 50px rgba(0, 0, 0, 0.12);
 	}
+
+	.btn {
+		background-color: #F7C9C3;
+		font-size: 20px;
+	}
+
+	/* popup code ref: https://www.w3schools.com/howto/howto_js_popup.asp */
+
+	.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  background-color: white;
+}
+
+#myPopup {
+	background-color: white;
+	width: 180px;
+	padding: 20px 20px 20px 30px;
+	box-shadow:3px 3px 50px rgba(0, 0, 0, 0.12);
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  visibility: hidden;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  top: 70%;
+  left: 20%;
+  margin-left: -110px;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
 
   </style>
 
@@ -93,6 +152,59 @@
 		function pop() {
 			var popup = document.getElementById("myPopup");
 			popup.classList.toggle("show");
+		}
+
+		function blank() {
+			$('#blank').fadeOut(1000, function() {
+				var blank = $('#blank').attr('src');
+				var canvas = $('#canvas').attr('src');
+				$("#blank").attr("src", canvas);
+				$("#canvas").attr("src", blank);
+			}.bind(canvas)).fadeIn(1000);
+			$('#canvas').fadeOut(1000).bind(blank).fadeIn(1000);
+		}
+
+		// toggle code ref: https://stackoverflow.com/questions/15433522/slide-out-div-using-jquery
+		function del1() {
+			$("#item1").toggle("slow",function () {
+				$(this).parent().animate();
+			})
+		}
+		
+		function del2() {
+			$("#item2").toggle("slow",function () {
+				$(this).parent().animate();
+			})
+		}
+
+		function del3() {
+			$("#item3").toggle("slow",function () {
+				$(this).parent().animate();
+			})
+		}
+
+		function del4() {
+			$("#item4").toggle("slow",function () {
+				$(this).parent().animate();
+			})
+		}
+
+		function del5() {
+			$("#item5").toggle("slow",function () {
+				$(this).parent().animate();
+			})
+		}
+
+		function del6() {
+			$("#item6").toggle("slow",function () {
+				$(this).parent().animate();
+			})
+		}
+
+		function del7() {
+			$("#item7").toggle("slow",function () {
+				$(this).parent().animate();
+			})
 		}
 
 	</script>
@@ -117,19 +229,70 @@
 	<div class="row">
 		<span class="m-5" style="font-size:50px; cursor:pointer" onclick="openNav()">&#9776;</span>
 		<button type="button" style="background-color: #FCE6E4; width:60vw; font-size:30px;" class="m-5 rounded btn btn-lg btn-block">Compare Your Works!</button>
-		<div class="column">
+		<div class="column popup" onclick="pop()">
 			<i class="fa fa-pencil"></i>
-			<div style="font-size: 20px; margin-left: 43px; margin-top: 10px;">New</div>
+			<div style="font-size: 20px; margin-left: 43px; margin-top: 10px;">New
+				<span class="popuptext" id="myPopup">
+					<a href="#" style="text-decoration: none; color:black;">
+						<div class="row">Photo</div>
+					</a>
+					<a href="explore" style="text-decoration: none; color:black;">
+						<div class="row">Explore</div>
+					</a>
+				</span>
+			</div>
 		</div>
 	</div>
 	<div class="flex-container">
-		<a href="color"><img class="item" id="item1" src='/static/coloring/images/color_purple_grad.png'></a>
-		<img class="item" src='/static/coloring/images/color_purple_blue.png'>
-		<img class="item" src='/static/coloring/images/color_purple_pink.png'>
-		<img class="item" src='/static/coloring/images/color_purple.png'>
-		<img class="item" src='/static/coloring/images/color_blue_pink.png'>
-		<img class="item" src='/static/coloring/images/color_blue.png'>
-		<img class="item" src='/static/coloring/images/color_yellow.png'>
+		<div class="item" id="item1">
+			<a href="color"><img src='/static/coloring/images/color_purple_grad.png'></a>
+			<div class="row ml-4">
+				<button type="button" onclick="del1()" class="m-3 px-4 btn">Delete</button>
+				<button type="button" onclick="dup1()" class="m-3 p-3 btn">Duplicate</button>
+			</div>
+		</div>
+		<div class="item" id="item2">
+			<a href="color"><img src='/static/coloring/images/color_purple_blue.png'></a>
+			<div class="row ml-4">
+				<button type="button" onclick="del2()" class="m-3 px-4 btn">Delete</button>
+				<button type="button" class="m-3 p-3 btn">Duplicate</button>
+			</div>
+		</div>
+		<div class="item" id="item3">
+			<a href="color"><img src='/static/coloring/images/color_purple_pink.png'></a>
+			<div class="row ml-4">
+				<button type="button" onclick="del3()" class="m-3 px-4 btn">Delete</button>
+				<button type="button" class="m-3 p-3 btn">Duplicate</button>
+			</div>
+		</div>
+		<div class="item" id="item4">
+			<a href="color"><img src='/static/coloring/images/color_purple.png'></a>
+			<div class="row ml-4">
+				<button type="button" onclick="del4()" class="m-3 px-4 btn">Delete</button>
+				<button type="button" class="m-3 p-3 btn">Duplicate</button>
+			</div>
+		</div>
+		<div class="item" id="item5">
+			<a href="color"><img src='/static/coloring/images/color_blue_pink.png'></a>
+			<div class="row ml-4">
+				<button type="button" onclick="del5()" class="m-3 px-4 btn">Delete</button>
+				<button type="button" class="m-3 p-3 btn">Duplicate</button>
+			</div>
+		</div>
+		<div class="item" id="item6">
+			<a href="color"><img src='/static/coloring/images/color_blue.png'></a>
+			<div class="row ml-4">
+				<button type="button" onclick="del6()" class="m-3 px-4 btn">Delete</button>
+				<button type="button" class="m-3 p-3 btn">Duplicate</button>
+			</div>
+		</div>
+		<div class="item" id="item7">
+			<a href="color"><img src='/static/coloring/images/color_yellow.png'></a>
+			<div class="row ml-4">
+				<button type="button" onclick="del7()" class="m-3 px-4 btn">Delete</button>
+				<button type="button" class="m-3 p-3 btn">Duplicate</button>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

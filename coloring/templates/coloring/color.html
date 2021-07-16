@@ -38,6 +38,11 @@
 		display: block;
 		transition: 0.3s;
 	}
+
+	.sidenav a {
+		text-decoration: none;
+		color:black;
+	}
 	
 	.sidenav .closebtn {
 		position: absolute;
@@ -96,7 +101,7 @@
 #myPopup {
 	background-color: white;
 	width: 180px;
-	padding: 25px;
+	padding: 20px 20px 20px 30px;
 	box-shadow:3px 3px 50px rgba(0, 0, 0, 0.12);
 }
 
@@ -104,7 +109,6 @@
 .popup .popuptext {
   visibility: hidden;
   border-radius: 6px;
-  padding: 10px 0;
   position: absolute;
   z-index: 1;
   top: 125%;
@@ -141,32 +145,74 @@
 			document.getElementById("mySidenav").style.width = "0";
 		}
 
+		// code ref for changing images with transition: https://stackoverflow.com/questions/43830062/how-to-change-img-src-with-a-transition-by-clicking-another-image
+
 		function blue() {
-			var blue = $('#blue').attr('src');
-			$("#blue").attr("src", $('#canvas').attr('src'));
-			$("#canvas").attr("src", blue);
+			$('#blue').fadeOut(1000, function() {
+				var blue = $('#blue').attr('src');
+				var canvas = $('#canvas').attr('src');
+				$("#blue").attr("src", canvas);
+				$("#canvas").attr("src", blue);
+			}.bind(canvas)).fadeIn(1000);
+			$('#canvas').fadeOut(1000).bind(blue).fadeIn(1000);
 		}
 
 		function pink() {
-			var pink = $('#pink').attr('src');
-			$("#pink").attr("src", $('#canvas').attr('src'));
-			$("#canvas").attr("src", pink);
+			$('#pink').fadeOut(1000, function() {
+				var pink = $('#pink').attr('src');
+				var canvas = $('#canvas').attr('src');
+				$("#pink").attr("src", canvas);
+				$("#canvas").attr("src", pink);
+			}.bind(canvas)).fadeIn(1000);
+			$('#canvas').fadeOut(1000).bind(pink).fadeIn(1000);
 		}
 
 		function blank() {
-			var blank = $('#blank').attr('src');
-			$("#blank").attr("src", $('#canvas').attr('src'));
-			$("#canvas").attr("src", blank);
+			$('#blank').fadeOut(1000, function() {
+				var blank = $('#blank').attr('src');
+				var canvas = $('#canvas').attr('src');
+				$("#blank").attr("src", canvas);
+				$("#canvas").attr("src", blank);
+			}.bind(canvas)).fadeIn(1000);
+			$('#canvas').fadeOut(1000).bind(blank).fadeIn(1000);
 		}
 
 		function template() {
-			$("#canvas").attr("src", '/static/coloring/images/color_purple.png');
+			$('#canvas').fadeOut(1000, function() {
+				var template = '/static/coloring/images/color_purple.png';
+				var canvas = $('#canvas').attr('src');
+				var blue = $('#blue').attr('src');
+				var pink = $('#pink').attr('src');
+				var blank = $('#blank').attr('src');
+				$("#canvas").attr("src", template);
+				$("#blue").attr("src", canvas);
+				$("#pink").attr("src", blue);
+				$("#blank").attr("src", pink);
+			}.bind(canvas)).fadeIn(1000);
+			$('#blue').fadeOut(1000).bind(template).fadeIn(1000);
+			$('#pink').fadeOut(1000).bind(template).fadeIn(1000);
+			$('#blank').fadeOut(1000).bind(template).fadeIn(1000);
 		}
-
 
 		function pop() {
 			var popup = document.getElementById("myPopup");
 			popup.classList.toggle("show");
+		}
+
+		function duplicate() {
+			$('#canvas').fadeOut(1000, function() {
+				var canvas = $('#canvas').attr('src');
+				var blue = $('#blue').attr('src');
+				var pink = $('#pink').attr('src');
+				var blank = $('#blank').attr('src');
+				$("#canvas").attr("src", template);
+				$("#blue").attr("src", canvas);
+				$("#pink").attr("src", blue);
+				$("#blank").attr("src", pink);
+			}.bind(canvas)).fadeIn(1000);
+			$('#blue').fadeOut(1000).bind(duplicate).fadeIn(1000);
+			$('#pink').fadeOut(1000).bind(duplicate).fadeIn(1000);
+			$('#blank').fadeOut(1000).bind(duplicate).fadeIn(1000);
 		}
 
 		function duplicate() {
@@ -207,7 +253,7 @@
 			<div class="row" style="margin-top: 5vh;">
 				<div class="popup" onclick="pop()" style="font-size: 20px; margin-left: 5vw;">New
 					<span class="popuptext" id="myPopup">
-						<div onclick="duplicate()" class="row">Duplicate</div>
+						<div onclick="duplicate()" class="pb-3 row">Duplicate</div>
 						<div onclick="template()" class="row">From template</div>
 					</span>
 				</div>
