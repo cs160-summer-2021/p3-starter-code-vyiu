@@ -61,8 +61,54 @@
 		font-size: 40px;
 		padding-left: 50px;
 		padding-top: 40px;
-
 	}
+
+	/* popup code ref: https://www.w3schools.com/howto/howto_js_popup.asp */
+
+	.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  background-color: white;
+}
+
+#myPopup {
+	background-color: white;
+	width: 180px;
+	padding: 20px 20px 20px 30px;
+	box-shadow:3px 3px 50px rgba(0, 0, 0, 0.12);
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  visibility: hidden;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  top: 70%;
+  left: 20%;
+  margin-left: -110px;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+
 
 	</style>
 
@@ -74,6 +120,12 @@
 		function closeNav() {
 			document.getElementById("mySidenav").style.width = "0";
 		}
+
+		function pop() {
+			var popup = document.getElementById("myPopup");
+			popup.classList.toggle("show");
+		}
+
 	</script>
 </head>
 <body>
@@ -95,10 +147,20 @@
 	<div class="row">
 		<span class="m-5" style="font-size:50px; cursor:pointer" onclick="openNav()">&#9776;</span>
 		<button type="button" style="background-color: #FCE6E4; width:60vw; font-size:30px;" class="m-5 rounded btn btn-lg btn-block">Studio</button>
-		<div class="column">
+		<div class="column popup" onclick="pop()">
 			<i class="fa fa-pencil"></i>
-			<div style="font-size: 20px; margin-left: 43px; margin-top: 10px;">New</div>
+			<div style="font-size: 20px; margin-left: 43px; margin-top: 10px;">New
+				<span class="popuptext" id="myPopup">
+					<a href="#" style="text-decoration: none; color:black;">
+						<div class="row">Photo</div>
+					</a>
+					<a href="explore" style="text-decoration: none; color:black;">
+						<div class="row">Explore</div>
+					</a>
+				</span>
+			</div>
 		</div>
+	</div>
 	</div>
 	<div class="row" style="height: 28vh; margin-left: 6vw;">
 		<a href="compare">
